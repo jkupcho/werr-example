@@ -1,2 +1,12 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+
+export default ({children}) => {
+  return (
+    <div>
+      <p>Header</p>
+      <div>
+        {children}
+      </div>
+    </div>
+  )
+}
