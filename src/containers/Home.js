@@ -39,11 +39,5 @@ const mapDispatchToProps = (
 
 export default connect(
   state => ({ cats: state.cats }),
-  (dispatch) => {
-    return {
-      retrieve: () => {
-        dispatch(fetchList())
-      }
-    }
-  }
+  mapDispatchToProps
 )(Home)

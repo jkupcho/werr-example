@@ -11,7 +11,7 @@ export const RECEIVE_LIST = 'RECEIVE_LIST'
 export function receiveList (json) {
   return {
     type: RECEIVE_LIST,
-    items: json.data.children.map(child => child.data),
+    items: json,
     receivedAt: Date.now()
   }
 }
@@ -21,10 +21,8 @@ export function fetchList() {
     dispatch(requestList());
 
     return fetch(`http://localhost:3000/api`)
-      .then(response => {
-        console.log(response.json())
-        return response.json()
-      })
+      .then(response => response.json())
       .then(json => dispatch(receiveList(json)))
+      .catch(error => console.log(error))
   }
 }
